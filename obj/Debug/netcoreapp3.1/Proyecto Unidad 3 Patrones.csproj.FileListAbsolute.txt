@@ -1,0 +1,14 @@
+C:\Users\Sergio Aaron Rivera\source\repos\Proyecto Unidad 3 Patrones\Proyecto Unidad 3 Patrones\bin\Debug\netcoreapp3.1\Proyecto Unidad 3 Patrones.exe
+C:\Users\Sergio Aaron Rivera\source\repos\Proyecto Unidad 3 Patrones\Proyecto Unidad 3 Patrones\bin\Debug\netcoreapp3.1\Proyecto Unidad 3 Patrones.deps.json
+C:\Users\Sergio Aaron Rivera\source\repos\Proyecto Unidad 3 Patrones\Proyecto Unidad 3 Patrones\bin\Debug\netcoreapp3.1\Proyecto Unidad 3 Patrones.runtimeconfig.json
+C:\Users\Sergio Aaron Rivera\source\repos\Proyecto Unidad 3 Patrones\Proyecto Unidad 3 Patrones\bin\Debug\netcoreapp3.1\Proyecto Unidad 3 Patrones.runtimeconfig.dev.json
+C:\Users\Sergio Aaron Rivera\source\repos\Proyecto Unidad 3 Patrones\Proyecto Unidad 3 Patrones\bin\Debug\netcoreapp3.1\Proyecto Unidad 3 Patrones.dll
+C:\Users\Sergio Aaron Rivera\source\repos\Proyecto Unidad 3 Patrones\Proyecto Unidad 3 Patrones\bin\Debug\netcoreapp3.1\Proyecto Unidad 3 Patrones.pdb
+C:\Users\Sergio Aaron Rivera\source\repos\Proyecto Unidad 3 Patrones\Proyecto Unidad 3 Patrones\obj\Debug\netcoreapp3.1\Proyecto Unidad 3 Patrones.csproj.AssemblyReference.cache
+C:\Users\Sergio Aaron Rivera\source\repos\Proyecto Unidad 3 Patrones\Proyecto Unidad 3 Patrones\obj\Debug\netcoreapp3.1\Proyecto Unidad 3 Patrones.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sergio Aaron Rivera\source\repos\Proyecto Unidad 3 Patrones\Proyecto Unidad 3 Patrones\obj\Debug\netcoreapp3.1\Proyecto Unidad 3 Patrones.AssemblyInfoInputs.cache
+C:\Users\Sergio Aaron Rivera\source\repos\Proyecto Unidad 3 Patrones\Proyecto Unidad 3 Patrones\obj\Debug\netcoreapp3.1\Proyecto Unidad 3 Patrones.AssemblyInfo.cs
+C:\Users\Sergio Aaron Rivera\source\repos\Proyecto Unidad 3 Patrones\Proyecto Unidad 3 Patrones\obj\Debug\netcoreapp3.1\Proyecto Unidad 3 Patrones.csproj.CoreCompileInputs.cache
+C:\Users\Sergio Aaron Rivera\source\repos\Proyecto Unidad 3 Patrones\Proyecto Unidad 3 Patrones\obj\Debug\netcoreapp3.1\Proyecto Unidad 3 Patrones.dll
+C:\Users\Sergio Aaron Rivera\source\repos\Proyecto Unidad 3 Patrones\Proyecto Unidad 3 Patrones\obj\Debug\netcoreapp3.1\Proyecto Unidad 3 Patrones.pdb
+C:\Users\Sergio Aaron Rivera\source\repos\Proyecto Unidad 3 Patrones\Proyecto Unidad 3 Patrones\obj\Debug\netcoreapp3.1\Proyecto Unidad 3 Patrones.genruntimeconfig.cache
