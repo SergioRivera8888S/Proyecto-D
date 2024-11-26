@@ -1,48 +1,56 @@
-nombre: SonarQube Cloud
-sobre:
-  empuje:
-    ramas:
-      - Maestro.
-  tirar. solicitud:
-    tipos: [abrir, sincronizar, reabrir]
-los puestos de trabajo:
-  construir:
-    nombre: BuildConstruir y analizar
-    en: ventanas-últumos
-    pasos:
-      - nombre: Configuración upJDK 17
-        usos: actions/setup-java-v4
-        con:
-          java-versión: 17
-          distribución: 'zulu' - Opciones de distribución alternativas están disponibles.
-      - usos: actions/checkout.v4
-        con:
-          a fondo: 0 Los clones huebé deben desactivarse para una mejor relevancia del análisis
-      - nombre: paquetes de caché SonarQube Cloudpackages
-        usos: actions/cache-v4
-        con:
-          ruta:~\sonar\cache
-          clave: $- runner.os}}-sonar
-          restaura-claves: $. runner.os}}-sonar
-      - nombre: Cache SonarQube Cloud escáner
+name: SonarQube Cloud
+on:
+  push:
+    branches:
+      - main # Cambiado de 'Maestro.' a 'main' (nombre de la rama principal)
+  pull_request:
+    types: [opened, synchronize, reopened] # Corregido "tirar.solicitud" a "pull_request"
+
+jobs:
+  build:
+    name: Build and Analyze
+    runs-on: windows-latest # Corregido "ventanas-últumos" a "windows-latest"
+
+    steps:
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: 'zulu' # Comentario aclarativo correcto
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Los clones profundos deben desactivarse para una mejor relevancia del análisis
+
+      - name: Cache SonarQube packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.sonar/cache # Corregido ruta
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      - name: Cache SonarQube scanner
         id: cache-sonar-scanner
-        usos: actions/cache-v4
-        con:
-          ruta: .sonar.scanner
-          clave: $. runner.os}}-sonar-scanner
-          restaura-teclas: $- runner.os}}-sonar-scanner
-      - nombre: Instalar escáner de SonarQube Cloud
-        if: steps.cache-sonar-scanner.outputs.cache-hit .= 'true'
-        Concha: powerhell
-        Correr: .
-          New-Item -Path ..sonar-scanner -ItemType Directory
-          actualización de la herramienta dotnet-sonarscanner --tool-path ..sonar-scanner
-      - nombre: Construir y analizar
+        uses: actions/cache@v4
+        with:
+          path: .sonar/scanner
+          key: ${{ runner.os }}-sonar-scanner
+          restore-keys: ${{ runner.os }}-sonar-scanner
+
+      - name: Install SonarQube scanner
+        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true' # Corregido operador "="
+        shell: powershell
+        run: |
+          New-Item -Path .sonar-scanner -ItemType Directory
+          dotnet tool install dotnet-sonarscanner --tool-path .sonar-scanner
+
+      - name: Build and Analyze
         env:
-          GITHUB.TOKEN: Secrets de $.GITHUB.TOKEN - Necesitado para obtener información de relaciones públicas, si lo hubiera
-          SONAR.TOKEN: $- Secrets.SONAR.TOKEN}}
-        Concha: powerhell
-        Correr: .
-          ..soncanner.dotnet-sonarscanner begin /k:"SergioRivera8888S-Proyecto-D" /o:"sergiorivera8888s" /d:sonar.token="$-secres.SONAR-TOKEN "" /dsonar.host.url=https://sonarclobud.io"
-          construcción de dotnet
-          ..sonar.scanner.dotnet-sonarscanner end /d:sonar.token="$" secrets.SONAR.TOKEN ".
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Necesitado para obtener información de relaciones públicas
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        shell: powershell
+        run: |
+          .sonar-scanner/dotnet-sonarscanner begin /k:"SergioRivera8888S-Proyecto-D" /o:"sergiorivera8888s" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet build
+          .sonar-scanner/dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
